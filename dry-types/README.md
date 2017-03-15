@@ -20,7 +20,9 @@ module Types
   # 正規表現を使用してメールアドレスの型を定義する
   Email = String.constrained(format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
 
-  # 組み込まれている `gt` (greater than) を使って 18 より大きい整数という型を定義する
+  # dry-logic という gem に定義されている `gt` (greater than) を使って 18 より大きい整数という型を定義する
+  # dry-logic には他にも様々な機能が実装されている
+  # see: http://dry-rb.org/gems/dry-logic/
   Age = Int.constrained(gt: 18)
 end
 
@@ -34,7 +36,6 @@ Types::Email['yukita@feedforce.jp']
 Types::Email['invalid_email']
 # => raise Dry::Types::ConstraintError
 #    "invalid_email" violates constraints (format?(/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, "invalid_email") failed)
-
 ```
 
 ## Built-in Types

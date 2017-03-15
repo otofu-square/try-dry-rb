@@ -1,9 +1,3 @@
-require 'dry-types'
-
-module Types
-  include Dry::Types.module
-end
-
 # ---------------------------------------------------------
 # - maybe
 #   nil もしくは指定した型の値に適合する
